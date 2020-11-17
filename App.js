@@ -42,12 +42,15 @@ const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <View style={styles.body}>
-          <View style={styles.titleContainer}>
-            <Text style={styles.title}>Testando integração!</Text>
-            <Text>{count}</Text>
-            {errorMessage ? <Text>{errorMessage}</Text> : null}
+      <SafeAreaView style={styles.container}>
+        <View style={styles.ContentContainer}>
+          <Text style={styles.title}>Testando integração!</Text>
+          {errorMessage ? (
+            <Text style={styles.midText}>{errorMessage}</Text>
+          ) : (
+            <Text style={styles.midText}>{count}</Text>
+          )}
+          <View style={styles.ContentBtn}>
             <Button title="Adicionar" onPress={increment} />
             <Button title="Remover" onPress={decrement} />
           </View>
@@ -58,19 +61,29 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
-  body: {
-    backgroundColor: '#FFF',
+  container: {
+    flex: 1,
+    backgroundColor: '#F4F4F4',
   },
-  titleContainer: {
-    marginTop: 32,
-    justifyContent: 'flex-start',
+  ContentContainer: {
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 24,
   },
   title: {
+    padding: 10,
     fontSize: 24,
     fontWeight: '600',
-    color: '#000',
+    color: '#2f2f2f',
+  },
+  midText: {
+    padding: 5,
+    fontSize: 16,
+    color: '#2f2f2f',
+  },
+  ContentBtn: {
+    padding: 5,
+    flexDirection: 'row',
   },
 });
 
